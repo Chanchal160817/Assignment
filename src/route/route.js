@@ -1,23 +1,27 @@
 const express = require('express');
 const _ = require('underscore')
 const router = express.Router();
-const chanchal = require('lodash')
+// const chanchal = require('lodash')
 
 
-router.get('/test', function (req, res) {
-   
-    let a= [1,2,3,5,6,7]
 
-  count = 7,
-  missing = []
+router.get("/sol2", function (req, res) {
+    let arr = [33, 34, 35, 37, 38]
+    let len = arr.length
+ 
+    let total = 0;
+    for (var i in arr) {
+        total += arr[i];
+    }
+ 
+    let firstDigit = arr[0]
+    let lastDigit = arr.pop()
+    let consecutiveSum = (len + 1) * (firstDigit + lastDigit) / 2
+    let missingNumber = consecutiveSum - total
+ 
+    res.send({ data: missingNumber });
+});
 
-for (let i = 1; i <= count; i++) {
-  if (a.indexOf(i) === -1) {
-    missing.push(i)
-  }
-}
-console.log(missing)
-})
 
 
 
